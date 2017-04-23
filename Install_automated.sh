@@ -11,7 +11,7 @@ function Install_apache
 
 function Install_haproxy 
 {
-  echo "Searching and Installing apache .."
+  echo "Searching and Installing Haproxy .."
   yum search haproxy > /dev/null
 }
 
@@ -60,7 +60,13 @@ case $R in
   Install_jenkins
   ;;
 
-  *)
+  [aA][pP][aA][cC][hH][eE][" "]["&"][" "][hH][aA][pP][rR][oO][xX][yY])
+  echo "Searching and Installing apache & Haproxy .. "
+  Install_apache
+  Install_haproxy
+  ;;
+
+   *)
   echo "Bad choice buddy ... ;)"
   ;;
 esac
