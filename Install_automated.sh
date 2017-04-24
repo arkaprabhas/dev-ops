@@ -25,16 +25,21 @@ yum search java-1.8.0-openjdk > /dev/null
 `echo 'export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk' | sudo tee -a /etc/profile`
 `echo 'export JRE_HOME=/usr/lib/jvm/jre' | sudo tee -a /etc/profile`
 source /etc/profile > /dev/null
+echo "Checking java version ..."
+java -version
+echo "Checking java version ..."
+java -version
 wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
 rpm --import http://pkg.jenkins-ci.org/redhat-stable/jenkins-ci.org.key
-yum install jenkins
+echo "Installing jenkins .. "
+yum search jenkins > /dev/null
 systemctl start jenkins.service
 systemctl enable jenkins.service
 firewall-cmd --zone=public --permanent --add-port=8080/tcp
 firewall-cmd --reload
 }
 
-echo "Do you want to Install Apache Haproxy Jenkins Apache & Haproxy Jenkins|All : Apache Haproxy Jenkins Apache & Haproxy Jenkins All "
+echo "Do you want to Install Apache Haproxy Jenkins Apache & Haproxy Haproxy & Jenkins | All : Apache Haproxy Jenkins Apache & Haproxy  Haproxy & Jenkins  All"
 read R
 
 case $R in
@@ -64,6 +69,12 @@ case $R in
   echo "Searching and Installing apache & Haproxy .. "
   Install_apache
   Install_haproxy
+  ;;
+
+  [hH][aA][pP][rR][oO][xX][yY][" "]["&"][" "][jJ][eE][nN][kK][iI][nN][sS])
+  echo "Searching and Installing Haproxy & Jenkins .. "
+  Install_haproxy
+  Install_jenkins
   ;;
 
    *)
