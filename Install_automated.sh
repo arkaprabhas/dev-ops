@@ -1,5 +1,6 @@
 #!/bin/bash
 #Comment : In order to modify more in this script we will commit to the devops_modify branch
+# Modification reviewed 07-May-2017
 echo "THis script will search for APACHE , HAPROXY or JENKINS and install it in your system .."
 echo "Prereq: Your server must be connected to the internet .."
 
